@@ -1,0 +1,310 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "6057504f-f52b-49eb-a22e-7520a39cc20e",
+   "metadata": {},
+   "source": [
+    "# Exercise No.1 KERO"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a81f4282-2521-4d47-85ea-d9e6cd26dcac",
+   "metadata": {},
+   "source": [
+    "**1- Draw Rhombus \"معين\"**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "e0c41e02-a074-4121-81b4-a7954d968163",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    *\n",
+      "   ***\n",
+      "  *****\n",
+      " *******\n",
+      "*********\n",
+      " *******\n",
+      "  *****\n",
+      "   ***\n",
+      "    *\n"
+     ]
+    }
+   ],
+   "source": [
+    "def draw_rhombus(n):\n",
+    "    for i in range(n):\n",
+    "        print(\" \" * (n - i - 1) + \"*\" * (2 * i + 1))\n",
+    "    for i in range(n - 2, -1, -1):\n",
+    "        print(\" \" * (n - i - 1) + \"*\" * (2 * i + 1))\n",
+    "\n",
+    " \n",
+    "draw_rhombus(5)\n"
+   ]
+  },
+  {
+   "attachments": {
+    "4f2e9323-122d-4ab9-a9b6-f1b47e02d98e.png": {
+     "image/png": "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"
+    }
+   },
+   "cell_type": "markdown",
+   "id": "f684bc97-d3be-4b0b-a682-16c66911ddb3",
+   "metadata": {},
+   "source": [
+    "**2- write the next equation** \n",
+    "\n",
+    "![image.png](attachment:4f2e9323-122d-4ab9-a9b6-f1b47e02d98e.png)\n",
+    "\n",
+    "if x = 10 ,the answer Should be 10.1999 "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "430ac928-c1f7-4382-96f9-13f33f20be29",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter value of x:  10\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Result: 10.199992960001408\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = float(input(\"Enter value of x: \"))\n",
+    "\n",
+    "numerator = x**3 + 2*x - 0.5*x**(-3)\n",
+    "denominator = x**2 + 2 * 10**(-5)\n",
+    "\n",
+    "result = numerator / denominator\n",
+    "\n",
+    "print(\"Result:\", result)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8f17e2c0-ba2c-4cd8-8b70-ae3caf4e8e6f",
+   "metadata": {},
+   "source": [
+    "**3-correct**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "a064fb79-6936-4494-9036-7310153f886d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "50\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = 50\n",
+    "y = 95\n",
+    "c = x            \n",
+    "z = y - c       \n",
+    "z += 5          \n",
+    "print(z)        \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7a8edb87-aa81-4eed-8f87-a764c9f79e1f",
+   "metadata": {},
+   "source": [
+    "**4- Make a \"Generic\" Code that by taking any Sentence as an input it will return two Sentences which are splitted by the Middle Letter.**\r\n",
+    "\r\n",
+    "Examples :- input = \"harpy\" ,output= [\"ha\" ,\"py\"]\r\n",
+    "\r\n",
+    "input=\"Mastery\" ,output=[\"Mas\",\"ery\"]\r\n",
+    "\r\n",
+    "input=\"He was Lucky\" ,output=['He wa', ' Lucky']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "be5840f6-6009-4200-b1dc-541dcdc1e2f0",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['har', 'py']\n",
+      "['Mast', 'ery']\n",
+      "['He was', ' Lucky']\n"
+     ]
+    }
+   ],
+   "source": [
+    "def split_by_middle(sentence):\n",
+    "    mid = len(sentence) // 2\n",
+    "    if len(sentence) % 2 != 0:\n",
+    "        mid += 1\n",
+    "    return [sentence[:mid], sentence[mid:]]\n",
+    "    \n",
+    "print(split_by_middle(\"harpy\"))      \n",
+    "print(split_by_middle(\"Mastery\"))     \n",
+    "print(split_by_middle(\"He was Lucky\"))\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1e79b707-4858-4f7e-ae10-d696793e913c",
+   "metadata": {},
+   "source": [
+    "**5-Write a Python program which accepts the user's first and last name and print them in reverse order with a space between them.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "b6b9cf6f-6239-478f-9517-efc3173ae53e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter your first name:  khalil\n",
+      "Enter your last name:  kero\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "kero khalil\n"
+     ]
+    }
+   ],
+   "source": [
+    "first_name = input(\"Enter your first name: \")\n",
+    "last_name = input(\"Enter your last name: \")\n",
+    "\n",
+    "print(last_name + \" \" + first_name)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c26fd036-3480-4275-83bb-787191b822c9",
+   "metadata": {},
+   "source": [
+    "**6-Write a Python program which accepts a sequence of comma-separated numbers from user and generate a list and a tuple with those numbers.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "cc443e87-6275-41d9-aadd-48556d671404",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a number:  20\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Square of the number is: 400.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "num = float(input(\"Enter a number: \"))\n",
+    "\n",
+    "square = num ** 2\n",
+    "\n",
+    "print(\"Square of the number is:\", square)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "22613e62-df1a-465b-b06f-79d9f773a2c2",
+   "metadata": {},
+   "source": [
+    "**7-Write a Python program which accepts width and height of Rectangle and Calculate its area**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "a2777543-1909-412c-9458-7b6747b9775a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter numbers separated by commas:  5,10,15\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Sum of numbers: 30.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "numbers = input(\"Enter numbers separated by commas: \")\n",
+    "\n",
+    "num_list = [float(num) for num in numbers.split(\",\")]\n",
+    "\n",
+    "total = sum(num_list)\n",
+    "\n",
+    "print(\"Sum of numbers:\", total)\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
